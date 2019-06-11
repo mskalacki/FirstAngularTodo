@@ -18,19 +18,21 @@
             <li>Tablice</li>
         </ul>
     </header>
-    <form class=Add-Task-Form ng-controller="CardController">
-        <input class="Add-name" ng-model="name" type="text" placeholder="Wpisz treść zadania" required>
-
-        <button ng-click="AddCard()">Dodaj zadanie</button>
-    </form>
-    <div class="Trello-Wrapper" ng-controller="CardController">
-        <div class="Trello-card" ng-repeat="task in Tasks">
-            <div class="Card-item">{{task.name}}</div>
-            <div class="Card-id">{{task.id}}</div>
-
+    <div  ng-controller="CardController">
+        <form class=Add-Task-Form>
+            <input class="Add-name" ng-model="name" type="text" placeholder="Wpisz treść zadania" required>
+    
+            <button ng-click="AddCard()">Dodaj zadanie</button>
+        </form>
+        <div class="Trello-Wrapper">
+            <div class="Trello-card" ng-repeat="task in Tasks">
+                <div class="Card-item">{{task.name}}</div>
+                <div class="Card-id">{{task.id}}</div>
+    
+            </div>
+    
+    
         </div>
-
-
     </div>
     <script src="node_modules/angular/angular.js"></script>
     <script src="app/app.js"></script>
