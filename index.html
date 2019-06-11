@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl-PL" ng-app="MyTrelloApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Moje Trello</h1>
+        <ul>
+            <li>Kontakt</li>
+            <li>O nas</li>
+            <li>Tablice</li>
+        </ul>
+    </header>
+    <form class=Add-Task-Form ng-controller="CardController">
+        <input class="Add-name" ng-model="name" type="text" placeholder="Wpisz treść zadania" required>
+
+        <button ng-click="AddCard()">Dodaj zadanie</button>
+    </form>
+    <div class="Trello-Wrapper" ng-controller="CardController">
+        <div class="Trello-card" ng-repeat="task in Tasks">
+            <div class="Card-item">{{task.name}}</div>
+            <div class="Card-id">{{task.id}}</div>
+
+        </div>
+
+
+    </div>
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/Controllers/CardController.js"></script>
+</body>
+
+</html>

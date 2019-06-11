@@ -1,0 +1,61 @@
+
+html{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+   
+}
+header{
+    width: auto;
+    height: 100px;
+    background-color:#54FF94;
+    position: sticky;
+}
+
+ul{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 5px;
+    text-align: center;
+}
+li{
+    display: inline-block;
+}
+
+.Trello-Wrapper{
+    text-align: center;
+}
+
+.Trello-card{
+    width: 200px;
+    height: 200px;
+    background-color:#FFB33A;
+    margin:5px;
+    display: inline-block;
+    position: relative;
+    box-shadow: 0 1px 3px black;
+}
+.Card-item{
+    text-align: center;
+    width:auto;
+    height: auto;
+    background-color: #7B1BCC;
+}
+.Card-id{
+    position: absolute;
+    bottom:0;
+    right: 0;
+    margin: 2px;
+}
+button{
+    background-color: #7B1BCC;
+    color:white;
+    display:block;
+    margin-top: 5px;
+}
+.Add-name, .Add-id{
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
