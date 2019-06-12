@@ -1,4 +1,8 @@
 
+*{
+    margin: 0;
+}
+
 html{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: white;
@@ -25,6 +29,26 @@ li{
 
 .Trello-Wrapper{
     text-align: center;
+    vertical-align: text-top;
+    
+}
+
+
+.Todo{
+    display: inline-block;
+    width: 200px;
+    margin-right:100px;
+}
+.Done{
+    display: inline-block;
+    width: 200px;
+}
+.Todo>p, .Done>p{
+    color: white;
+    background-color: #54FF94;
+    margin: 10px;
+    
+    
 }
 
 .Trello-card{
@@ -32,15 +56,24 @@ li{
     height: 200px;
     background-color:#FFB33A;
     margin:5px;
-    display: inline-block;
+    display: block;
     position: relative;
     box-shadow: 0 1px 3px black;
 }
-.Card-item{
+ .Todo .Card-item{
     text-align: center;
     width:auto;
     height: auto;
     background-color: #7B1BCC;
+    
+}
+
+.Done .Card-item{
+    text-align: center;
+    width:auto;
+    height: auto;
+    background-color: rgb(55, 241, 101);
+    
 }
 .Card-id{
     position: absolute;
@@ -48,13 +81,14 @@ li{
     right: 0;
     margin: 2px;
 }
+
 button{
     background-color: #7B1BCC;
     color:white;
     display:block;
     margin-top: 5px;
 }
-.Add-name, .Add-id{
+.Add-name{
     display: block;
     margin-top: 5px;
     margin-bottom: 5px;

@@ -18,25 +18,44 @@
             <li>Tablice</li>
         </ul>
     </header>
-    <div  ng-controller="CardController">
+    <div ng-controller="CardController">
         <form class=Add-Task-Form>
             <input class="Add-name" ng-model="name" type="text" placeholder="Wpisz treść zadania" required>
-    
+
             <button ng-click="AddCard()">Dodaj zadanie</button>
         </form>
         <div class="Trello-Wrapper">
-            <div class="Trello-card" ng-repeat="task in Tasks">
-                <div class="Card-item">{{task.name}}</div>
-                <div class="Card-id">{{task.id}}</div>
-    
+            <div class="Todo">
+               <p>Do zrobienia</p>
+                <div class="Trello-card" ng-repeat="task in TasksToDo">
+                    <div class="Card-item">{{task.name}}</div>
+
+                    <div class="Card-id">
+                        <label  for= "checkbox">Ukończone!</label>
+                        <input class = "checkbox "type="checkbox" ng-model="confirmed" ng-change="MoveToDone(task.name)"></div>
+
+                </div>
             </div>
-    
-    
+            <div class="Done">
+                <p>Zrobione<p>
+                
+                <div class="Trello-card" ng-repeat="task in TasksDone">
+                    <div class="Card-item">{{task.name}}</div>
+                    <div class="Card-id">
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
         </div>
-    </div>
-    <script src="node_modules/angular/angular.js"></script>
-    <script src="app/app.js"></script>
-    <script src="app/Controllers/CardController.js"></script>
+        <script src="node_modules/angular/angular.js"></script>
+        <script src="app/app.js"></script>
+        <script src="app/Controllers/CardController.js"></script>
 </body>
 
 </html>

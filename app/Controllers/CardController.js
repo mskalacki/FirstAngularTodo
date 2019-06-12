@@ -1,6 +1,6 @@
 angular.module("app.Controllers").controller("CardController", function ($scope) {
 
-    $scope.Tasks =
+    $scope.TasksToDo =
         [
 
             { name: 'Odrobić lekcje', id: '1' },
@@ -8,21 +8,42 @@ angular.module("app.Controllers").controller("CardController", function ($scope)
             { name: 'Zrobić zakupy', id: '3' }
 
         ];
-        let idValue = 4;
+
+        $scope.TasksDone = [
+            { name: 'Podlać kwiaty', id: '1' },
+            { name: 'Wynieść śmieci', id: '2' },
+            { name: 'Poodkurzać', id: '3' }
+
+
+        ]
+    let idValue = 4;
     $scope.AddCard = function () {
-       
+
         let nameValue = document.querySelector('.Add-name').value;
 
-        if (nameValue){
-            $scope.Tasks.push({ name: nameValue, id: idValue});
-        
+        if (nameValue) {
+            $scope.TasksToDo.push({ name: nameValue, id: idValue });
+
             idValue++;
-            alert($scope.Tasks.length);
+
         }
-        
-        
+
+
     }
-  
+    $scope.MoveToDone = function(taskName){
+
+       let index = $scope.TasksToDo.findIndex(x => x.name === taskName);
+       let tempSplice = $scope.TasksToDo.splice(index,1);
+       
+        // $scope.TasksDone.unshift($scope.TasksToDo[index]);
+        // $scope.TasksTodo.splice(0,1);
+        $scope.TasksDone.unshift(tempSplice[0]);
+
+      
+
+       
+    }
+
 
 
 
