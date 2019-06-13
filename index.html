@@ -19,28 +19,48 @@
         </ul>
     </header>
     <div ng-controller="CardController">
-        <form class=Add-Task-Form>
-            <input class="Add-name" ng-model="name" type="text" placeholder="Wpisz treść zadania" required>
 
-            <button ng-click="AddCard()">Dodaj zadanie</button>
-        </form>
+
+
         <div class="Trello-Wrapper">
+
+            <div class="Column-title-label">
+
+                <p>Do zrobienia</p>
+            </div>
+            <div class="Column-title-label">
+
+                <p>Zrobione</p>
+            </div>
+            <form class=Add-Task-Form ng-show="show">
+                <input class="Add-name" ng-model="name" type="text" placeholder="Wpisz tytuł zadania" required>
+                <input class="Add-content" ng-model="content" type="text" placeholder="Wpisz opis zadania">
+
+                <button ng-click="AddCard(name, content)">Dodaj zadanie</button>
+                <button ng-click="show = !show">Ukryj formularz dodawania zadania</button>
+            </form>
+            <div class="formDisplay" ng-hide="show">
+                <button ng-click="show = !show">Pokaż formularz dodawania zadania</button>
+            </div>
             <div class="Todo">
-               <p>Do zrobienia</p>
+
                 <div class="Trello-card" ng-repeat="task in TasksToDo">
                     <div class="Card-item">{{task.name}}</div>
+                    <div class="Card-content">{{task.content}}</div>
 
                     <div class="Card-id">
-                        <label  for= "checkbox">Ukończone!</label>
-                        <input class = "checkbox "type="checkbox" ng-model="confirmed" ng-change="MoveToDone(task.name)"></div>
+                        <label for="checkbox">Ukończone!</label>
+                        <input class="checkbox " type="checkbox" ng-model="confirmed" ng-change="MoveToDone(task.name)">
+                    </div>
 
                 </div>
             </div>
             <div class="Done">
-                <p>Zrobione<p>
-                
+
+
                 <div class="Trello-card" ng-repeat="task in TasksDone">
                     <div class="Card-item">{{task.name}}</div>
+                    <div class="Card-content">{{task.content}}</div>
                     <div class="Card-id">
 
 
